@@ -91,9 +91,9 @@ function getdir(path){
 
 function createPage(props){
     //props={
-    // show:...
-    // title:...
-    //
+    //  show:...
+    //  title:...
+    //  disableClose:...
     // }
 
     const win=document.createElement('win')
@@ -103,7 +103,10 @@ function createPage(props){
     const closeIcon=document.createElement('winCloseIcon')
     const title=document.createElement('winTitle')
 
-    head.appendChild(closeIcon)
+    if (props.disableClose!==true){
+        head.appendChild(closeIcon)
+    }
+
     head.appendChild(title)
 
     win.appendChild(head)
@@ -132,16 +135,29 @@ function createPage(props){
                 document.appendChild(back)
                 back.showWin=null
             }
-            return back;
         }
         else {
             document.body.appendChild(back)
-            return back;
         }
     }
     catch (error) {
         console.log(error)
     }
+
+    try {
+        back.closeWin=function () {
+            win.style.animation=`closeWinAnimation 0.5s ease-in-out`
+            back.style.animation='closeBackAnimation 0.5s'
+            setTimeout(function(){back.remove()},490)
+
+        }
+    }
+    catch (error){
+        console.log(error)
+    }
+
+    //
+    return back
 
 
 }
