@@ -1,4 +1,8 @@
-document.getElementById('open-file').addEventListener('click',()=>{
+window.onload=function (){
+    //openSigninWindow()
+}
+
+/*document.getElementById('open-file').addEventListener('click',()=>{
     let file = document.getElementById('file')
     file.click()
 })
@@ -20,7 +24,7 @@ document.getElementById('file').addEventListener('change',()=>{
 
         })
     }
-})
+})*/
 
 function uploadFile(FileInfo){
     const xhr = new XMLHttpRequest();
@@ -59,7 +63,6 @@ function signin(username,password){
             console.log(xhr.responseText)
         }
     }
-    document.getElementById('submit').removeEventListener('click',()=>{})
     xhr.send()
 }
 

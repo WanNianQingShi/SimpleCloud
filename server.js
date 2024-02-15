@@ -7,6 +7,12 @@ const app=http.createServer((req,res)=>{
 
     ////////////////////////////
 
+    res.setHeader('Access-Control-Allow-Origin', '*'); // 允许所有来源访问，也可以指定特定来源
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS'); // 允许的 HTTP 方法
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization'); // 允许的请求头
+
+    ///////////////////////////
+
     if (req.url==='/upload'&& req.method.toUpperCase()==='POST'){
         var raw=[]
 
@@ -95,7 +101,7 @@ const app=http.createServer((req,res)=>{
 
 
 
-    if (url.parse(req.url,true).pathname==='/signin.js'){
+    if (url.parse(req.url,true).pathname==='/signin'){
 
         //signin.js?username=...&password=...
 
