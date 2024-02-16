@@ -2,13 +2,14 @@ function openSigninWindow(){
     const win=createPage({
         show:true,
         title:`登录`,
-        disableClose:true
+        disableClose:''
     })
     win.winBody.style.display="flex"
 
     //const flexFrame=document.createElement('flexFrame')
     const partLeft=document.createElement('SigninPart')
     partLeft.style.width='60%'
+
 
     const partRight=document.createElement('SigninPart')
     partRight.style.flexGrow='1'
@@ -55,6 +56,15 @@ function openSigninWindow(){
             xhr.onreadystatechange=()=>{
                 if(xhr.readyState===4&&xhr.status===200){
                     console.log(xhr.responseText)
+                    if (xhr.responseText==='success'){
+                        window.localStorage.setItem('username',username)
+                        window.localStorage.setItem('password',password)
+                        document.getElementById('user-id').innerHTML=`用户:${username}`
+                        win.close();
+                    }else {
+                        alert(xhr.responseText)
+                    }
+
 
                 }
             }

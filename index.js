@@ -1,5 +1,7 @@
 window.onload=function (){
-    //openSigninWindow()
+    checkLocalUserInfo()
+    setToolColumnItem()
+    setListAreaItem()
 }
 
 /*document.getElementById('open-file').addEventListener('click',()=>{
@@ -134,9 +136,9 @@ function createPage(props){
 
     try {
         if (props.show===false){
-            back.showWin=function (){
+            back.show=function (){
                 document.appendChild(back)
-                back.showWin=null
+                back.show=null
             }
         }
         else {
@@ -148,7 +150,7 @@ function createPage(props){
     }
 
     try {
-        back.closeWin=function () {
+        back.close=function () {
             win.style.animation=`closeWinAnimation 0.5s ease-in-out`
             back.style.animation='closeBackAnimation 0.5s'
             setTimeout(function(){back.remove()},490)
