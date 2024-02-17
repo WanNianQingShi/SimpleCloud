@@ -29,8 +29,9 @@ function createFileListAreaRow(props) {
 function createFilePreviewCard(props) {
     const frame = document.createElement('div')
     {
-        frame.style.width = '100%'
+        frame.style.width = '94%'
         frame.style.height = 'fit-content'
+        frame.style.margin='10px 3%'
         frame.style.background = 'transparent'
     }
     const info = document.createElement('div')
@@ -43,9 +44,10 @@ function createFilePreviewCard(props) {
 
     const icon = document.createElement('div')
     {
-        icon.style.width = '40px'
-        icon.style.height = '40px'
+        icon.style.width = '60px'
+        icon.style.height = '60px'
         icon.style.display = 'inline-block'
+        icon.style.fontSize='40px'
 
         if (props.type==='dir'){
             icon.innerHTML=`<i class="bi bi-folder2"></i>`
@@ -82,6 +84,7 @@ function createFilePreviewCard(props) {
     const downloadBtn=document.createElement('button')
     {
         downloadBtn.classList.add('file-preview-btn')
+        downloadBtn.innerHTML=`<i class="bi bi-cloud-download"></i> 下载`
     }
     {
     control.appendChild(downloadBtn);

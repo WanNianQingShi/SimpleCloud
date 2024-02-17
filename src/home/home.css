@@ -60,7 +60,7 @@
 
 }
 #preview{
-    flex-grow: 0.97;
+    flex-grow: 1;
     height: 98%;
     border-radius: 10px;
     background: rgb(232, 232, 232);
@@ -120,16 +120,22 @@ FileListAreaRowFrame{
 
 }
 
+FileListAreaRowFrame:hover{
+    background: rgba(98, 98, 255, 0.6);
+}
+
 aaa{
 
 }
 
 .file-preview-btn{
+    display: block;
     width: 90%;
     height: fit-content;
-    margin: 5px auto;
-    padding: 5px 0;
-    background: rgb(231, 231, 231);
+    text-align: left;
+    margin: 10px auto;
+    padding: 5px 5%;
+    background: rgb(208, 208, 208);
     color: rgb(42, 42, 42);
     border: none;
     border-radius: 10px;
