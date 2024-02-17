@@ -61,6 +61,7 @@ function openSigninWindow(){
                         window.localStorage.setItem('password',password)
                         document.getElementById('user-id').innerHTML=`用户:${username}`
                         win.close();
+                        setTimeout(()=>{location.reload()},400)
                     }else {
                         alert(xhr.responseText)
                     }
