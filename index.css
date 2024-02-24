@@ -38,19 +38,23 @@ winHead{
     padding: 10px 5% 10px 5%;
     width: 90%;
     background: #dedede;
+    align-items: center;
+    display: flex;
 
 }
 
 winCloseIcon{
-    width: 20px;
+    width: fit-content;
+    margin-right: 10px;
     height: fit-content;
     text-align: center;
     font-size: 30px;
     display: inline-block;
+    color: red;
 }
 
 winTitle{
-    width: fit-content;
+    flex-grow: 1;
     height: fit-content;
     font-size: 25px;
 }
@@ -59,7 +63,7 @@ winBody{
     display: block;
     width: 100%;
     flex-grow: 1;
-    overflow: scroll;
+    overflow: auto;
 }
 
 winBack{

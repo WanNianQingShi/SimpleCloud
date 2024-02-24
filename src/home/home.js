@@ -132,6 +132,10 @@ function setToolColumnItem() {
 
     var root = {}
     root.newFile = createToolColumnItem({text: '上传文件'})
+    root.newFile.addEventListener('click', () => {
+        openUploadWindow()
+    })
+
     root.newDir = createToolColumnItem({text: '新建文件夹'})
     root.selectMultiple = createToolColumnItem({text: '选择文件'})
     //console.log(root)
@@ -158,7 +162,7 @@ function setListAreaItem() {
     xhr.setRequestHeader('Content-Type', 'application/json;charset=utf-8')
     xhr.onreadystatechange = () => {
         if (xhr.readyState === 4 && xhr.status === 200) {
-            console.log(xhr.responseText)
+            //console.log(xhr.responseText)
             JSON.parse(xhr.responseText).forEach(item => {
                 var row = createFileListAreaRow(item)
                 document.getElementById('list-area').appendChild(row)

@@ -4,6 +4,8 @@ window.onload=function (){
     setListAreaItem()
 }
 
+
+
 /*document.getElementById('open-file').addEventListener('click',()=>{
     let file = document.getElementById('file')
     file.click()
@@ -119,7 +121,7 @@ function createPage(props){
 
     back.appendChild(win)
 
-    closeIcon.innerHTML='C'
+    closeIcon.innerHTML='<i class="bi bi-x-lg"></i> '
     closeIcon.addEventListener('click',()=>{
         win.style.animation=`closeWinAnimation 0.5s ease-in-out`
         back.style.animation='closeBackAnimation 0.5s'

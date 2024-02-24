@@ -25,8 +25,8 @@ const app=http.createServer((req,res)=>{
             data=String(data)
             data=JSON.parse(data)
 
-
-            fs.writeFile(`./resource/${data.name}`,data.context,(err)=>{
+            console.log(`./resource/${data.username}/${data.privatePath}${data.name}`)
+            fs.writeFile(`./resource/${data.username}/${data.privatePath}${data.name}`,data.context,(err)=>{
                 if (err){
                     console.log(err)
                     res.end('error')
@@ -158,7 +158,7 @@ const app=http.createServer((req,res)=>{
 
                 })
                 res.end(JSON.stringify(resList))
-                console.log(data)
+                console.log(path)
             }
         })
     }
@@ -177,9 +177,10 @@ const app=http.createServer((req,res)=>{
         })
 
     }else{
+        if( req.url.indexOf('.js')!==-1 || req.url.indexOf('.css')!==-1)
         fs.readFile(`.${encodeURI(req.url)}`,(err,data)=>{
             if (err){
-                //console.log(err)
+                console.log(err)
                 //res.end('读取失败')
             }else{
                 res.end(data)
