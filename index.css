@@ -1,6 +1,6 @@
 *{
     transition: 0.5s;
-    animation: 0.5s;
+    animation-duration: 0.5s;
     -webkit-transition: 0.5s;
     -webkit-animation: 0.5s;
     color: black;

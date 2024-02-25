@@ -87,7 +87,11 @@ function openUploadWindow() {
                         context:e.target.result
 
                     }
-                    console.log(sendText)
+                    //console.log(sendText)
+                    {
+                        preparedFileArea.children[item].state.innerHTML='正在上传'
+                        preparedFileArea.children[item].state.style.color='blue'
+                    }
 
                     const xhr = new XMLHttpRequest();
                     xhr.open('POST', `http://127.0.0.1:5657/upload`, true);
@@ -98,7 +102,9 @@ function openUploadWindow() {
                             if (xhr.responseText==='success'){
                                 preparedFileArea.children[item].state.innerHTML='上传成功'
                                 preparedFileArea.children[item].state.style.color='green'
-
+                            }else {
+                                preparedFileArea.children[item].state.innerHTML='上传失败'
+                                preparedFileArea.children[item].state.style.color='red'
                             }
 
                         }
@@ -153,7 +159,7 @@ function createOpenedFileExhibitItem(props){
 
     const state=document.createElement('div');
     {
-        state.style.fontSize='15px'
+        state.style.fontSize='18px'
         state.style.color='gray'
         state.style.wordBreak='break-word';
 
@@ -172,7 +178,8 @@ function createOpenedFileExhibitItem(props){
         deleteIcon.innerHTML='<i class="bi bi-x-lg"></i>'
 
         deleteIcon.addEventListener('click',()=>{
-            frame.remove()
+            frame.style.animation='fadeToRight 0.5s';
+            setTimeout(function (){frame.remove()},490)
         })
 
         frame.deleteIcon=deleteIcon
